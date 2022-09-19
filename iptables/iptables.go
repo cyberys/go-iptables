@@ -127,7 +127,7 @@ func New(opts ...option) (*IPTables, error) {
 		return nil, err
 	}
 	ipt.path = path
-
+/*
 	vstring, err := getIptablesVersionString(path)
 	if err != nil {
 		return nil, fmt.Errorf("could not get iptables version: %v", err)
@@ -146,6 +146,11 @@ func New(opts ...option) (*IPTables, error) {
 	ipt.hasWait = waitPresent
 	ipt.waitSupportSecond = waitSupportSecond
 	ipt.hasRandomFully = randomFullyPresent
+*/
+	ipt.hasCheck = true
+	ipt.hasWait = true
+	ipt.waitSupportSecond = true
+	ipt.hasRandomFully = true
 
 	return ipt, nil
 }
